@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Centralizado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            padding: 0 30px;
+            gap: 20px;
+        }
+
+        .item1 {
+            flex: 2;
+            margin-right: auto;
+            background-color: lightblue;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .item2 {
+            flex: 7;
+            text-align: center;
+            background-color: lightcoral;
+            padding: 10px;
+        }
+
+        .item3 {
+            flex: 3;
+            margin-left: auto;
+            background-color: lightgreen;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item1">Item 1</div>
+        <div class="item2">Item 2 (Centralizado)</div>
+        <div class="item3">Item 3</div>
+    </div>
+
+</body>
+</html>
