@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Pesquisa Independente</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo do header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        /* Estilo inicial da barra de pesquisa */
+        .search-bar {
+            position: fixed;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            top: 60px; /* Logo abaixo do header */
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.322);
+            padding: 10px;
+            z-index: 9999;
+            transition: 0.3s ease; /* Transição suave */
+        }
+
+        /* Quando a barra de pesquisa se junta ao header */
+        .search-bar.fixed {
+            top: 10px; /* Alinha com o topo da página */
+            padding: 5px; /* Reduz o espaçamento */
+            transition: 0.3s !important;
+        }
+        .search-bar.fixed:focus-within{
+            transform: translateY(90px);
+            transition: 0.3s;
+        }
+        /*
+        .search-bar.fixed input{
+            transition: 0.3s !important;
+        }
+
+        .search-bar.fixed input:focus{
+            transform: translateY(90px);
+            transition: 0.3s;
+        }
+        .search-bar input:focus {
+            outline-color: rgba(255, 0, 0, 0.322);
+        }
+        */
+        /* Conteúdo principal */
+        main {
+            margin-top: 120px; /* Espaço para o header e barra de pesquisa */
+            padding: 20px;
+            height: 900px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Logo</div>
+        <div>Menu</div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Pesquisar..." style="width: 80%; padding: 8px;">
+
+        <div class="pesq">
+
+        </div>
+    </div>
+
+    <main>
+        <p>Conteúdo principal da página...</p>
+        <p>Role para baixo para ver a barra de pesquisa se juntar ao header!</p>
+    </main>
+
+    <script>
+        // Seleciona o header e a barra de pesquisa
+        const header = document.querySelector('.header');
+        const searchBar = document.querySelector('.search-bar');
+
+        // Adiciona o evento de rolagem
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Adiciona a classe "fixed" à barra de pesquisa
+                searchBar.classList.add('fixed');
+            } else {
+                // Remove a classe "fixed" quando voltar ao topo
+                searchBar.classList.remove('fixed');
+            }
+        });
+    </script>
+</body>
+</html>
